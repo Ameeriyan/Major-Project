@@ -1,0 +1,214 @@
+/* Container and Base Styles */
+.container {
+    min-height: 150px;
+    position: relative;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Results Area */
+#results {
+    padding: 12px;
+    margin: 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    min-height: 60px;
+}
+
+.error {
+    width: 250px;
+    height: 90px;
+    padding: 12px;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-left: 4px solid #3ec00b;
+    color: #df0016;
+    font-weight: bold;
+    overflow: hidden;
+    animation: errorBgBlink 2.5s linear infinite;
+}
+
+@keyframes errorBgBlink {
+    0% { background: #ffffff; }
+    20% { background: #fcb3b3; }
+    50% { background: #ffffff; }
+    70% { background: #fcb3b3; }
+    100% { background: #ffffff; }
+}
+
+/* Navigation Controls */
+.slider-container {
+    margin-top: 15px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.navigation-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Navigation Buttons */
+.nav-button {
+    padding: 8px 20px;
+    border: none;
+    background: #ff4757;
+    border-radius: 25px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background 0.3s ease;
+}
+
+.nav-button:hover {
+    background: #ff6b81;
+}
+
+.nav-button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Error Counter */
+.error-counter {
+    font-size: 16px;
+    color: #2d3436;
+    font-weight: bold;
+    background: #f0f0f0;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* Show All Errors Button */
+.rerun-button {
+    display: none;
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: #fd2600;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.rerun-button::before,
+.rerun-button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.rerun-button::before {
+    animation: wave 2s linear infinite;
+    transform: translateX(-100%);
+}
+
+.rerun-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 2px;
+    background: rgb(255, 255, 255);
+    transform-origin: center;
+    animation: rotateLine 4s linear infinite;
+}
+
+@keyframes rotateLine {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes wave {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.rerun-button:hover {
+    background: #5e41ff;
+}
+
+@keyframes gentlePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+/* Loading Indicator */
+.loading-indicator {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.spinner {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-top: 3px solid #4834d4;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error Link */
+.error-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.4;
+    overflow: hidden;
+}
+
+/* Message above Click Here button */
+.click-here-message {
+    text-align: center;
+    margin: 15px 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #4834d4;
+}
